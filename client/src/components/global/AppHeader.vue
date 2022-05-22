@@ -4,17 +4,21 @@
       <li>
         <router-link to="/" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</router-link>
       </li>
-      <li>
+      <li v-if="!loggedIn">
         <router-link to="/login" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">login</router-link>
       </li>
-      <li>
+      <li v-if="!loggedIn">
         <router-link to="/register" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">register</router-link>
+      </li>
+      <li v-if="loggedIn">
+        <router-link to="/profile" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">profile</router-link>
       </li>
     </ul>
   </div>
 </template>
 <script>
 export default {
-  name: 'AppHeader'
+  name: 'AppHeader',
+  props: ['loggedIn'],
 }
 </script>
