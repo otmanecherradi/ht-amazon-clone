@@ -10,10 +10,7 @@
     "entity": "user",
     "service": "users",
     "secret": "RZ/mqQJp3Ya+/7a18qfzD90KeNo=",
-    "authStrategies": [
-      "jwt",
-      "local"
-    ],
+    "authStrategies": ["jwt", "local"],
     "jwtOptions": {
       "header": {
         "typ": "access"
@@ -30,6 +27,6 @@
   },
   "mysql": {
     "client": "mysql2",
-    "connection": "mysql://root:@localhost:3306/ht_amazon_clone"
+    "connection": "mysql://root:docker@localhost:3306/amazon_clone"
   }
 }

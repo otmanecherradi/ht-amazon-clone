@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-// users-model.js - A KnexJS
+// ratings-model.js - A KnexJS
 //
 // See http://knexjs.org/
 // for more of what you can do here.
@@ -9,7 +9,7 @@ module.exports = function (app) {
    * @type {import('knex').Knex}
    */
   const db = app.get('knexClient');
-  const tableName = 'users';
+  const tableName = 'ratings';
 
   db.schema.hasTable(tableName).then((exists) => {
     if (!exists) {
@@ -17,16 +17,10 @@ module.exports = function (app) {
         .createTable(tableName, (table) => {
           table.increments('id');
 
-          table.string('email').unique();
-          table.string('password');
+          table.integer('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE').index();
+          table.integer('product_id').unsigned().references('id').inTable('products').onDelete('CASCADE').index();
 
-          table.string('name').notNullable();
-          table.string('address').nullable();
-          table.string('phone').nullable();
-
-          table.text('img_url').nullable();
-
-          table.timestamps(true, true);
+          table.integer('rating');
         })
         .then(() => console.log(`Created ${tableName} table`))
         .catch((e) => console.error(`Error creating ${tableName} table`, e));
