@@ -23,6 +23,69 @@
         aria-describedby="emailHelp" placeholder="Enter email">
     </div>
     <div class="form-group mb-6">
+      <label for="nameImput" class="form-label inline-block mb-2 text-gray-700">name</label>
+      <input 
+      v-model="user.name"
+      type="email" class="form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="nameImput"
+        aria-describedby="nameHelp" placeholder="Enter name">
+    </div>
+    <div class="form-group mb-6">
+      <label for="phoneInput" class="form-label inline-block mb-2 text-gray-700">phone number</label>
+      <input 
+      v-model="user.phone"
+      type="phone" class="form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="phoneInput"
+        aria-describedby="nameHelp" placeholder="Enter phone">
+    </div>
+    <div class="form-group mb-6">
+      <label for="addressInput" class="form-label inline-block mb-2 text-gray-700">address</label>
+      <input 
+      v-model="user.address"
+      type="text" class="form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="addressInput"
+        aria-describedby="nameHelp" placeholder="Enter address">
+    </div>
+    <div class="form-group mb-6">
       <label for="passwordInput" class="form-label inline-block mb-2 text-gray-700">Password</label>
       <input 
       v-model="user.password"
@@ -42,16 +105,25 @@
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="passwordInput"
         placeholder="Password">
     </div>
-    <div class="flex justify-between items-center mb-6">
-      <div class="form-group form-check">
-        <input type="checkbox"
-          class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-          id="exampleCheck2">
-        <label class="form-check-label inline-block text-gray-800" for="exampleCheck2">Remember me</label>
-      </div>
-      <a href="#!"
-        class="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Forgot
-        password?</a>
+    <div class="form-group mb-6">
+      <label for="passwordInput" class="form-label inline-block mb-2 text-gray-700">Confirm Password</label>
+      <input 
+      v-model="user.passwordConfirm"
+      type="password" class="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="passwordInput"
+        placeholder="Confirm Password">
     </div>
     <button type="submit" class="
       w-full
@@ -80,3 +152,18 @@
 </div>
 </div>
 </template>
+<script>
+import axios from 'axios';
+export default {
+  data: () => {
+    return {
+      user: {},
+    };
+  },
+  methods:{
+    registerClick() {
+      axios.post('http://localhost:8080/api/users/register')
+    }
+  },
+}
+</script>

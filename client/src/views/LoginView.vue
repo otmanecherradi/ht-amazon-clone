@@ -92,12 +92,12 @@ export default {
   },
   methods:{
     loginClick() {
-      axios.post('http://localhost:8080', this.user).then(function(){
+      axios.post('http://localhost:8080/api/users/login', this.user).then(function(){
         window.location.href = "http://localhost:3000/";
       }).catch(function() {
         this.msg = "please check the form for errors";
       });
     }
-  }
+  },
 }
 </script>
