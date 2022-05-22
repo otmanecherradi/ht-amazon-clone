@@ -1,10 +1,10 @@
 const { Service } = require('feathers-knex');
 
-exports.Users = class Users extends Service {
+exports.Orders = class Orders extends Service {
   constructor(options) {
     super({
       ...options,
-      name: 'users',
+      name: 'orders'
     });
   }
 };
