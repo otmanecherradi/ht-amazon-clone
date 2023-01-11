@@ -50,7 +50,7 @@
     "cors": "^2.8.5",
     "feathers-knex": "^8.0.1",
     "helmet": "^4.6.0",
-    "knex": "^2.0.0",
+    "knex": "^2.4.0",
     "mysql2": "^2.3.3",
     "serve-favicon": "^2.5.0",
     "winston": "^3.7.2"
